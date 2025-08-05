@@ -1,0 +1,39 @@
+.MuiDataGrid-columnHeader {
+  color: white;
+  background-color: #303030 !important;
+}
+
+.MuiDataGrid-root {
+  border-width: 0;
+}
+
+.MuiTablePagination-root {
+  background-color: #f5f5f5;
+}
+
+.MuiTablePagination-displayedRows {
+  border-left: 1px solid #c6c6c6;
+  border-right: 1px solid #c6c6c6;
+  vertical-align: baseline;
+  padding: 16px 20px;
+}
+
+.MuiDataGrid-footerContainer {
+  height: 52px;
+}
+
+.MuiTablePagination-actions {
+  margin-right: 20px;
+}
+
+.MuiDataGrid-row {
+  cursor: pointer;
+}
+
+.MuiDataGrid-selectedRowCount {
+  display: none;
+}
+
+.MuiDataGrid-row.Mui-selected {
+  background-color: transparent;
+}
