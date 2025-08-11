@@ -13,7 +13,7 @@ const meta: Meta<typeof DateRangePicker> = {
 export default meta;
 type Story = StoryObj<typeof DateRangePicker>;
 
-export const primary: Story = {
+export const normal: Story = {
   render: (args) => {
     const [date, setDate] = useState({
       endDate: '',
@@ -23,6 +23,43 @@ export const primary: Story = {
     return (
       <DateRangePicker
         {...args}
+        endDate={date.endDate}
+        required={false}
+        setStartDate={(date: any) =>
+          setDate((prevState) => {
+            const newState = {
+              ...prevState,
+              startDate: date && dayjs(date)?.format('YYYY-MM-DD'),
+            };
+            return newState;
+          })
+        }
+        setEndDate={(date: any) =>
+          setDate((prevState) => {
+            const newState = {
+              ...prevState,
+              endDate: date && dayjs(date)?.format('YYYY-MM-DD'),
+            };
+            return newState;
+          })
+        }
+        startDate={date.startDate}
+      />
+    );
+  },
+};
+
+export const disabled: Story = {
+  render: (args) => {
+    const [date, setDate] = useState({
+      endDate: '',
+      startDate: '',
+    });
+
+    return (
+      <DateRangePicker
+        {...args}
+        disabled
         endDate={date.endDate}
         required={false}
         setStartDate={(date: any) =>

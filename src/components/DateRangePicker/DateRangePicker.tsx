@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { cn } from '../../utils/cn';
+import { classNames } from '../../utils/cn';
 import dayjs, { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import {
@@ -18,6 +18,7 @@ import {
 
 interface DateRangePickerProps {
   endDate: Date | string | Dayjs;
+  disabled?: boolean;
   required?: boolean;
   startDate: Date | string | Dayjs;
   classname?: string;
@@ -27,6 +28,7 @@ interface DateRangePickerProps {
 
 const DateRangePicker = ({
   endDate,
+  disabled,
   required,
   startDate,
   classname,
@@ -79,7 +81,7 @@ const DateRangePicker = ({
     return (
       <PickersDay
         {...pickersDayProps}
-        className={cn(
+        className={classNames(
           '!m-0',
           inRange && '!rounded-none !bg-[#bbdefb]',
           isSelectedEnd && '!rounded-r-full !bg-[#5e9fe0] !text-white',
@@ -110,11 +112,12 @@ const DateRangePicker = ({
               ).format('DD MMM YYYY')}`
             : 'Select Date'
         }
+        disabled={disabled}
         size='small'
         variant='outlined'
         onClick={handleOpen}
         required={required}
-        className={cn('w-[250px] ', classname)}
+        className={classNames('w-[250px] ', classname)}
       />
 
       <Popper

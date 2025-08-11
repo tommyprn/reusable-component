@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 import type { GridColDef, GridRowsProp } from '@mui/x-data-grid';
-import { cn } from '../../utils/cn';
 import { DataGrid } from '@mui/x-data-grid';
+import { classNames } from '../../utils/cn';
 
 // component
 import EmptyTable from '../EmptyTable/EmptyTable';
@@ -39,7 +39,7 @@ function BaseTable({
 }: TableProps) {
   return (
     <div
-      className={cn(
+      className={classNames(
         'bg-white flex flex-col gap-4 rounded-lg p-4 max-w-[calc(100dvw-320px)]',
         classname
       )}
@@ -72,7 +72,7 @@ function BaseTable({
           noRowsOverlay: () => <EmptyTable text={emptyText} />,
           noResultsOverlay: () => <EmptyTable text={emptyText} />,
         }}
-        className={cn('[--unstable_DataGrid-radius:0px]')}
+        className={classNames('[--unstable_DataGrid-radius:0px]')}
         onPaginationModelChange={(pagination) =>
           setQuery({ page: pagination.page + 1, limit: pagination.pageSize })
         }
